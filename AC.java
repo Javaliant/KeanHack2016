@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 public class AC extends Application {
 	private final int MAX_TEMPERATURE = 84;
 	private final int MIN_TEMPERATURE = 58;
-	private int startingTemperature = 68;
+	private int startingTemperature = TemperatureLog.getTemp();
 	private Text temperatureText;
 	private IntegerProperty temperature = new SimpleIntegerProperty(startingTemperature);
 	public static void main(String[] args) {
@@ -79,6 +79,9 @@ public class AC extends Application {
 		stage.setTitle("Hack Kean 2016");
 		stage.setResizable(false);
 		stage.getIcons().add(new Image(getClass().getResourceAsStream("assets/cougar.png")));
+		stage.setOnCloseRequest(e -> {
+			TemperatureLog.save(temperature.getValue());
+		});
 		stage.show();
 	}
 }
