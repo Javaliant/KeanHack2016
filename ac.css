@@ -1,0 +1,6 @@
+#temperature-text {
+	-fx-font: 40px Tahoma;
+    -fx-fill: sandybrown;
+    -fx-stroke: black;
+    -fx-stroke-width: 1;
+}
